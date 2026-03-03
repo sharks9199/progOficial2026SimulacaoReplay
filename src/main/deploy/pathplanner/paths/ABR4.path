@@ -1,0 +1,91 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 7.700699001426534,
+        "y": 3.3427817403708993
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 7.700699001426534,
+        "y": 2.3427817403708993
+      },
+      "isLocked": false,
+      "linkedName": "FinalABR3"
+    },
+    {
+      "anchor": {
+        "x": 7.338,
+        "y": 0.64
+      },
+      "prevControl": {
+        "x": 7.894362339514978,
+        "y": 0.6644793152639101
+      },
+      "nextControl": {
+        "x": 6.531328874234586,
+        "y": 0.6045073805334855
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 6.5,
+        "y": 0.64
+      },
+      "prevControl": {
+        "x": 6.978730385164051,
+        "y": 0.6515406562054205
+      },
+      "nextControl": {
+        "x": 5.478060947918695,
+        "y": 0.6153643227410308
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.69,
+        "y": 0.64
+      },
+      "prevControl": {
+        "x": 4.789500713266761,
+        "y": 0.6386019971469341
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "final ABR4"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.8,
+      "rotationDegrees": 0.0
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 1.5,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": "AutoBlueRight",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -90.0
+  },
+  "useDefaultConstraints": false
+}
