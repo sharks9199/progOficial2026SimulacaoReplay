@@ -81,30 +81,6 @@
           "data": {
             "name": "Change Shooter State"
           }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Intake Deploy"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "ABL5"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "ABL6"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "ABL7"
-          }
         }
       ]
     }

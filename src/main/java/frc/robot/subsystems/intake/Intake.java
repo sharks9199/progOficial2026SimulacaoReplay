@@ -34,7 +34,7 @@ public class Intake extends SubsystemBase {
             new TrapezoidProfile.Constraints(700, 600));
 
     private final ProfiledPIDController downController = new ProfiledPIDController(
-            1, 0.0, 0.00001,
+            0.8, 0.0, 0.00001,
             new TrapezoidProfile.Constraints(700, 700));
 
     public Intake(IntakeIO io) {

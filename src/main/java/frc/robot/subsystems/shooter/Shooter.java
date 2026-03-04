@@ -62,7 +62,7 @@ public class Shooter extends SubsystemBase {
     public static double kMinPivotAngle = 55.0;
     private double kMaxPivotAngle = 68.89;
 
-    public double kFeederShootRpm = 5500.0;
+    public double kFeederShootRpm = 6000.0;
     public double kCentrifugeShootRpm = 6000.0;
 
     private double kTargetHeightRelative = 1.8;
@@ -77,7 +77,7 @@ public class Shooter extends SubsystemBase {
     private double kMinTurretAngle = -110.0;
     private double kMaxTurretAngle = 17.0;
 
-    private double kRpmSlope = 225.0;
+    private double kRpmSlope = 185.0;
     private double kRpmIntercept = 2000.00;
     private double kMaxSafeRpm = 6000.0;
 
@@ -98,7 +98,7 @@ public class Shooter extends SubsystemBase {
     private double kPivotManualSpeed = 0.5;
 
     private double kYoffset = 0.235;
-    private double kXoffset = 0.115;
+    private double kXoffset = 0.015;
 
     private final Timer intakeAgitatorTimer = new Timer();
     private boolean isIntakeAgitatorDown = false;
