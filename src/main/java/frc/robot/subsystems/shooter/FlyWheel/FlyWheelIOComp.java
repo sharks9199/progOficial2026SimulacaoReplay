@@ -54,11 +54,11 @@ public class FlyWheelIOComp implements FlyWheelIO {
     // -----------------------------------------------------------
     centrifugeMotor = new TalonFX(FlyWheelConstants.kCentrifugeMotor); 
     var centConfig = new TalonFXConfiguration();
-    centConfig.CurrentLimits.SupplyCurrentLimit = 45.0; 
+    centConfig.CurrentLimits.SupplyCurrentLimit = 60.0; 
     centConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
     centConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive; 
     centConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast; 
-    centConfig.Slot0.kP = 0.1;
+    centConfig.Slot0.kP = 1.5;
     centConfig.Slot0.kI = 0.0;
     centConfig.Slot0.kD = 0.0;
     centConfig.Slot0.kV = 0.12;

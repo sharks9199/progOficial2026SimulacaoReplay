@@ -28,14 +28,16 @@ public class FieldConstants {
         public static final Pose2d kInitRedTrenchRight = new Pose2d(13.351, 7.400, new Rotation2d(180));
         public static final Pose2d kFinalRedTrenchRight = new Pose2d(10.696, 7.400, new Rotation2d(180));
 
-        //Cuspir pra zona
+        // Cuspir pra zona
+        // Cuspir pra zona (AZUL)
         public static final Pose2d kSpitPointLeft = new Pose2d(1.603, 6.047, new Rotation2d(0));
         public static final Pose2d kSpitPointRight = new Pose2d(1.603, 2.502, new Rotation2d(0));
 
-        //Começo da Zona neutra Azul
+        public static final Pose2d kSpitPointLeftRed = new Pose2d(14.938, 6.047, new Rotation2d(Math.PI));
+        public static final Pose2d kSpitPointRightRed = new Pose2d(14.938, 2.502, new Rotation2d(Math.PI));
+        // Começo da Zona neutra Azul
 
-        //Começo da Zona neutra Vermelha
-
+        // Começo da Zona neutra Vermelha
 
         // OUTPOST
         // Outpost Blue
@@ -87,31 +89,28 @@ public class FieldConstants {
                         e.getStackTrace());
                 return null;
             }
-            }
+        }
 
-            public static Translation2d getDynamicAimTarget(Pose2d robotPose) {
+        public static Translation2d getDynamicAimTarget(Pose2d robotPose) {
             var allianceOpt = DriverStation.getAlliance();
             boolean isRed = allianceOpt.isPresent() && allianceOpt.get() == Alliance.Red;
 
             double startBlueNeutralZone = 4.750;
             double startRedNeutralzone = 11.272;
 
-            // Define o meio do campo no eixo Y (aprox. 4.1 metros) para escolher o lado de cuspir
-            Translation2d closestSpitPoint = (robotPose.getY() > 4.100) 
-                ? kSpitPointLeft.getTranslation() 
-                : kSpitPointRight.getTranslation();
-
             if (isRed) {
-                // Se é vermelho e passou da zona neutra (indo para a esquerda, X menor)
                 if (robotPose.getX() < startRedNeutralzone) {
-                    return closestSpitPoint; 
+                    return (robotPose.getY() > 4.100)
+                            ? kSpitPointLeftRed.getTranslation()
+                            : kSpitPointRightRed.getTranslation();
                 } else {
                     return kHubRed;
                 }
             } else {
-                // Se é azul e passou da zona neutra (indo para a direita, X maior)
                 if (robotPose.getX() > startBlueNeutralZone) {
-                    return closestSpitPoint;
+                    return (robotPose.getY() > 4.100)
+                            ? kSpitPointLeft.getTranslation()
+                            : kSpitPointRight.getTranslation();
                 } else {
                     return kHubBlue;
                 }

@@ -9,8 +9,7 @@ public class IntakeConstants {
         public static final int ThroughBoreEncoderPort = 0;
         public static final double EncoderOffset = 0.0;
 
-        public static final double RollerSpeedCollect = 0.7;
-        public static final double RollerSpeedManual = 0.5;
+        public static final double RollerSpeedCollect = 0.6;
 
         public static final double RollerSpeedEject = -0.5;
         public static final double CollectPosition = 0.95;

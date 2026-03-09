@@ -240,12 +240,9 @@ public class Shooter extends SubsystemBase {
         }
         Pose2d currentPose = (robotPoseSupplier != null) ? robotPoseSupplier.get() : new Pose2d();
         
-        // Pega o ângulo atual através da função que vamos fornecer no RobotContainer
         double currentIntakeAngleRads = intakeAngleSupplier.getAsDouble(); 
 
-        // CORREÇÃO: Usando a variável currentIntakeAngleRads
         visualizer.update(currentPose, isShooting, currentIntakeAngleRads);
-        //System.out.println(currentIntakeAngleRads);
     }
 
     public void setFlywheelVelocity(double rpm) {
