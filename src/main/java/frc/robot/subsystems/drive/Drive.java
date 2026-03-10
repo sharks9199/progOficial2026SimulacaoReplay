@@ -200,12 +200,10 @@ public class Drive extends SubsystemBase {
 
   @Override
   public void periodic() {
-
     Pose2d currentPose = getPose(); // Sua posição atual
     field.setRobotPose(getPose());
 
     if (DriverStation.isEnabled()) {
-
       double errorX = currentTargetPose.getX() - currentPose.getX();
       double errorY = currentTargetPose.getY() - currentPose.getY();
       double xyError = Math.hypot(errorX, errorY);
@@ -213,6 +211,7 @@ public class Drive extends SubsystemBase {
       double thetaError = currentTargetPose.getRotation().minus(currentPose.getRotation()).getDegrees();
       SmartDashboard.putNumber("PathFollowing/XY_Error", xyError);
       SmartDashboard.putNumber("PathFollowing/Theta_Error", Math.abs(thetaError));
+      
     }
 
     odometryLock.lock(); // Prevents odometry updates while reading data

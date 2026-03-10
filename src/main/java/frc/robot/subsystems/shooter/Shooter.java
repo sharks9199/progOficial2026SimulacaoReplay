@@ -20,6 +20,8 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+import frc.robot.Constants.OIConstants;
 import frc.robot.subsystems.intake.Intake;
 import frc.robot.subsystems.intake.IntakeConstants.intakeConstants;
 import frc.robot.subsystems.shooter.FlyWheel.FlyWheelIO;
@@ -67,7 +69,7 @@ public class Shooter extends SubsystemBase {
     public double kFeederShootRpm = 6000.0;
     public double kCentrifugeShootRpm = 6000.0;
 
-    private double kTargetHeightRelative = 1.8;
+    private double kTargetHeightRelative = 2.3;
     private final double kSpitHeight = 0.3;
     private double currentTargetHeight = kTargetHeightRelative;
 
@@ -80,10 +82,13 @@ public class Shooter extends SubsystemBase {
     private double kMaxTurretAngle = 17.0;
     private Translation2d turretPoseField = new Translation2d();
 
-    private double kRpmSlope = 190.0;
-    private double kRpmIntercept = 2050.00;
     private double kMaxSafeRpm = 6000.0;
-
+    private double SlopeCalibration = 0;
+    private double InterceptCalibration = 0;
+    private boolean kCalibration = false;
+    private double kRpmSlope = 190; //kCalibration == false ? SlopeCalibration : 190.0;
+    private double kRpmIntercept = 2050; //kCalibration == false ? InterceptCalibration : 2050.00;
+    
     private final double kGravity = 9.81;
     private final double kWheelRadiusMeters = Units.inchesToMeters(2.0);
 
@@ -111,8 +116,8 @@ public class Shooter extends SubsystemBase {
     public static boolean isShooting = false;
 
     // Variáveis de Tuning do Shoot-on-the-fly
-    private double kTimeOfFlightMultiplier = 1.1; // Compensa a resistência do ar
-    private double kSystemLatencySeconds = 0.2; // Compensa atrasos mecânicos
+    private double kTimeOfFlightMultiplier = 3.7; // Compensa a resistência do ar
+    private double kSystemLatencySeconds = 0.5; // Compensa atrasos mecânicos
 
     public Shooter(TurretIO turretIO, PivotIO pivotIO, FlyWheelIO flywheelIO) {
         this.turretIO = turretIO;
@@ -122,10 +127,14 @@ public class Shooter extends SubsystemBase {
 
 
         SmartDashboard.putNumber("Tuning/Shooter/MinPivotAngle", kMinPivotAngle);
+        SmartDashboard.putBoolean("Tuning/Shooter/TurnOnCalibrationShoot", kCalibration);
 
         // Inicializa os valores no SmartDashboard para calibração
         SmartDashboard.putNumber("Tuning/Shooter/ToF_Multiplier", kTimeOfFlightMultiplier);
         SmartDashboard.putNumber("Tuning/Shooter/System_Latency", kSystemLatencySeconds);
+        SmartDashboard.putNumber("Tuning/Shooter/Slope", SlopeCalibration);
+        SmartDashboard.putNumber("Tuning/Shooter/Intercept", InterceptCalibration);
+
     }
 
     public void setupAutoAimReferences(Supplier<Pose2d> robotPoseSupplier, Supplier<Translation2d> targetSupplier,
@@ -157,6 +166,10 @@ public class Shooter extends SubsystemBase {
 
         kTimeOfFlightMultiplier = SmartDashboard.getNumber("Tuning/Shooter/ToF_Multiplier", kTimeOfFlightMultiplier);
         kSystemLatencySeconds = SmartDashboard.getNumber("Tuning/Shooter/System_Latency", kSystemLatencySeconds);
+        
+        kCalibration = SmartDashboard.getBoolean("Tuning/Shooter/TurnOnCalibrationShoot", kCalibration);
+        SlopeCalibration = SmartDashboard.getNumber("Tuning/Shooter/Slope", SlopeCalibration);
+        InterceptCalibration = SmartDashboard.getNumber("Tuning/Shooter/Intercept", InterceptCalibration);
 
         if (autoAimEnabled && robotPoseSupplier != null && targetSupplier != null && robotVelocitySupplier != null) {
             Pose2d robotPose = robotPoseSupplier.get();
@@ -245,6 +258,11 @@ public class Shooter extends SubsystemBase {
                     setFlywheelVelocity(calculatedAutoAimRpm);
                 }
             }
+        }
+
+        if (autoAimEnabled == false){
+            setFlywheelVelocity(0);
+            //System.out.println("OFF!");
         }
 
         currentTurretTarget = MathUtil.clamp(currentTurretTarget, kMinTurretAngle, kMaxTurretAngle);

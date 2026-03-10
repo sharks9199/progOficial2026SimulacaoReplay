@@ -221,6 +221,9 @@ public class RobotContainer {
         new JoystickButton(joystick2, OIConstants.kAutoAimIdx)
                 .onTrue(Commands.runOnce(() -> shooter.toggleAutoAim(), shooter));
 
+        new JoystickButton(joystick2, OIConstants.kStopShootingIdx)
+                .onTrue(new InstantCommand(() -> OIConstants.turnShootOffHome =  !OIConstants.turnShootOffHome));
+
         new POVButton(joystick2, OIConstants.kTurretToLeftPOV)
                 .whileTrue(shooter.manualTurretCommand(false));
 
@@ -236,8 +239,8 @@ public class RobotContainer {
         new JoystickButton(joystick2, OIConstants.kReverseSystem)
                 .whileTrue(new InstantCommand(() -> shooter.reverseSystem()));
 
-        // new JoystickButton(joystick2, OIConstants.kToggleFlywheel)
-        // .onTrue(shooter.toggleFlywheelCommand());
+        //new JoystickButton(joystick2, OIConstants.kToggleFlywheel)
+        //        .onTrue(shooter.toggleFlywheelCommand());
 
         new JoystickButton(joystick2, OIConstants.kIntakeIdxOperador)
                 .onTrue(intake.getToggleIntakeCommand());

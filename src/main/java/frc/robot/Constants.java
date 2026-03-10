@@ -49,6 +49,8 @@ public final class Constants {
 
     // Operator Controller
     public static final int kAutoAimIdx = 5;
+    public static final int kStopShootingIdx = 1;
+    public static boolean turnShootOffHome = false;
     // public static final int kShootidx = 8;
 
     public static final int kTurretToLeftPOV = 270;
@@ -59,7 +61,7 @@ public final class Constants {
     //public static final int kResetTurretEncoderIdx = 4;
     //public static final int kResetPivotIdx = 7;
     public static final int kReverseSystem = 6;
-    public static final int kToggleFlywheel = 1;
+    //public static final int kToggleFlywheel = 1;
     public static final int kIntakeIdxOperador = 2;
     public static final int kIntakeToggleShootingIdx = 3;
     public static final int kIntakeRollerReverseOperadorIdx = 4;
