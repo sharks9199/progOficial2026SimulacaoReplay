@@ -65,7 +65,7 @@ public class Drive extends SubsystemBase {
   private final Field2d field = new Field2d();
 
   private boolean isSlowModeEnabled = false;
-  private double slowModeMultiplier = 0.5;
+  private double slowModeMultiplier = 0.3; //tbt head developer
 
   // TunerConstants doesn't include these constants, so they are declared locally
   static final double ODOMETRY_FREQUENCY = new CANBus(TunerConstants.DrivetrainConstants.CANBusName).isNetworkFD()

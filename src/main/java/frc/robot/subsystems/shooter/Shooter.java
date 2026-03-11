@@ -40,10 +40,10 @@ public class Shooter extends SubsystemBase {
     private final FlyWheelIO flywheelIO;
     private final FlyWheelIOInputsAutoLogged flywheelInputs = new FlyWheelIOInputsAutoLogged();
 
-    // Adicionei aqui o visualizador do shooter
+    // Visualizador do shooter
     private final ShooterVisualizer visualizer;
     
-    // Adicionei as variáveis necessárias para receber o ângulo do Intake
+    // Variáveis necessárias para receber o ângulo do Intake
     private DoubleSupplier intakeAngleSupplier = () -> 0.0;
     
     // CORREÇÃO: Faltava fechar a chave } deste método!
@@ -86,7 +86,7 @@ public class Shooter extends SubsystemBase {
     private double SlopeCalibration = 0;
     private double InterceptCalibration = 0;
     private boolean kCalibration = false;
-    private double kRpmSlope = 190; //kCalibration == false ? SlopeCalibration : 190.0;
+    private double kRpmSlope = 185; //kCalibration == false ? SlopeCalibration : 190.0;
     private double kRpmIntercept = 2050; //kCalibration == false ? InterceptCalibration : 2050.00;
     
     private final double kGravity = 9.81;
