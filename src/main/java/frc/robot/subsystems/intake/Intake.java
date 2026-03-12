@@ -30,11 +30,11 @@ public class Intake extends SubsystemBase {
     private boolean enableShootingMotion = true;
 
     private final ProfiledPIDController upController = new ProfiledPIDController(
-            1.5, 0.0, 0.00001,
+            1.5, 0.0, 0.00001, //1.5
             new TrapezoidProfile.Constraints(700, 600));
 
     private final ProfiledPIDController downController = new ProfiledPIDController(
-            0.8, 0.0, 0.00001,
+            0.8, 0.0, 0.00001, //0.8
             new TrapezoidProfile.Constraints(700, 700));
 
     public Intake(IntakeIO io) {
@@ -83,7 +83,7 @@ public class Intake extends SubsystemBase {
             output = upController.calculate(currentPos, target);
         }
 
-        setPlanetary(output);
+        setPlanetary(-output);
     }
 
     // --- GETTERS ---

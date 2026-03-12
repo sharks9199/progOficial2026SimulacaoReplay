@@ -69,7 +69,7 @@ public class Shooter extends SubsystemBase {
     public double kFeederShootRpm = 6000.0;
     public double kCentrifugeShootRpm = 6000.0;
 
-    private double kTargetHeightRelative = 2.3;
+    private double kTargetHeightRelative = 2.4;
     private final double kSpitHeight = 0.3;
     private double currentTargetHeight = kTargetHeightRelative;
 
@@ -86,8 +86,8 @@ public class Shooter extends SubsystemBase {
     private double SlopeCalibration = 0;
     private double InterceptCalibration = 0;
     private boolean kCalibration = false;
-    private double kRpmSlope = 185; //kCalibration == false ? SlopeCalibration : 190.0;
-    private double kRpmIntercept = 2050; //kCalibration == false ? InterceptCalibration : 2050.00;
+    private double kRpmSlope = 350;//kCalibration == false ? SlopeCalibration : 190.0;
+    private double kRpmIntercept = 2100;//kCalibration == false ? InterceptCalibration : 2050.00;
     
     private final double kGravity = 9.81;
     private final double kWheelRadiusMeters = Units.inchesToMeters(2.0);
