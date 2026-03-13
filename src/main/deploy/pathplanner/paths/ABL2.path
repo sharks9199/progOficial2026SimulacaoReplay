@@ -12,7 +12,7 @@
         "y": 7.42
       },
       "isLocked": false,
-      "linkedName": "FinalLançamento"
+      "linkedName": "START-ABL2"
     },
     {
       "anchor": {
@@ -31,7 +31,7 @@
   "rotationTargets": [
     {
       "waypointRelativePos": 0.5010660980810234,
-      "rotationDegrees": 87.63965178580659
+      "rotationDegrees": 108.01060292403089
     }
   ],
   "constraintZones": [],

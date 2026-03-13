@@ -358,6 +358,10 @@ public class RobotContainer {
         }
     }
 
+    //public void intakeDeploy(){
+    //    if (Constants.)
+    //}
+
     public void changeShootState() {
         Constants.ShootAutoEnable = !Constants.ShootAutoEnable;
         System.out.print(Constants.ShootAutoEnable);

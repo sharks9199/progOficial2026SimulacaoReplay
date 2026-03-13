@@ -73,13 +73,13 @@ public final class Constants {
     public static final int kTotalLength = 250;
     
     public static final int kBoostStart = 0;
-    public static final int kBoostEnd = 15;
+    public static final int kBoostEnd = 13;
 
     public static final int kShooterStart = kBoostEnd + 1;
     public static final int kShooterEnd = kShooterStart + 24;
     
     public static final int kAllianceStart = 0;
-    public static final int kAllianceEnd = kAllianceStart + 138 + 39;
+    public static final int kAllianceEnd = kAllianceStart + 138 + 35;
 
     public static final int kShooterStartSecondary = kAllianceEnd + 1;
     public static final int kShooterEndSecondary = kShooterStartSecondary + 24;

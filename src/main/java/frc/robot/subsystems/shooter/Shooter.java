@@ -86,8 +86,11 @@ public class Shooter extends SubsystemBase {
     private double SlopeCalibration = 0;
     private double InterceptCalibration = 0;
     private boolean kCalibration = false;
-    private double kRpmSlope = 350;//kCalibration == false ? SlopeCalibration : 190.0;
-    private double kRpmIntercept = 2100;//kCalibration == false ? InterceptCalibration : 2050.00;
+    private double kRpmSlope = 310;//kCalibration == false ? SlopeCalibration : 190.0;
+    private double kRpmIntercept = 2140;//kCalibration == false ? InterceptCalibration : 2050.00;
+
+    //400 slope
+    //2050 intercept
     
     private final double kGravity = 9.81;
     private final double kWheelRadiusMeters = Units.inchesToMeters(2.0);
@@ -105,8 +108,8 @@ public class Shooter extends SubsystemBase {
     private double kTurretManualSpeed = 1.0;
     private double kPivotManualSpeed = 0.5;
 
-    private double kYoffset = - 0.235;
-    private double kXoffset = 0.15;
+    private double kYoffset = 0.0;
+    private double kXoffset = 0.0;
 
     private final Timer intakeAgitatorTimer = new Timer();
     private boolean isIntakeAgitatorDown = false;

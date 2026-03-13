@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 4.39,
-        "y": 7.44444578313253
+        "x": 4.314168674698795,
+        "y": 7.42
       },
       "prevControl": {
-        "x": 7.8058059914408,
-        "y": 7.44444578313253
+        "x": 7.729974666139595,
+        "y": 7.42
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "EndBlueLeftAuto4"
+      "linkedName": "START-ABL2"
     }
   ],
   "rotationTargets": [
